@@ -4,8 +4,6 @@
 
 # Mario and Sonic at the Olympic Games (Wii)
 
----
-
 ## Overview
 
 The game was co-developed by **Racjin**, known for the *Fullmetal Alchemist* PS2 trilogy and the *Naruto: Uzumaki Chronicles* series. As a result, its internal file structure closely mirrors that of other Racjin titles, and existing research on those games carries over well here.
