@@ -110,7 +110,7 @@ TODO: Confirm the format. I derived this from my PS2 FMA notes.
 **`.utx`**
 ```c
 struct UtxHeader {
-   u32 char_count;  // char_count * 2 == block_size - 4
+   u32 char_count;  // char_count * 2 == file size - 4. You can also understand it as UTF-16 characters count.
    u16 chars[];     // UTF-16, null-terminated
 };
 ```
