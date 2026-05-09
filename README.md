@@ -130,7 +130,7 @@ struct UtxHeader {
 ---
 
 ### Related Tools
-*   [**SoyJack**](https://github.com/soyjxck))
+*   [**SoyJack**](https://github.com/soyjxck)
 
 ---
 
