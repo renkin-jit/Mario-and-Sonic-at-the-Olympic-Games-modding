@@ -72,6 +72,49 @@ Secondary container holding a flat list of sections. Each section is either a si
 | `.img` | Racjin texture container. Wraps a `.tpl` image. |
 | `.pap` | Racjin texture layout format. Defines coordinate layout and slicing of an atlas texture into sprites; may also contain sprite animations. Almost always paired with its `.img` — typically the entry immediately before it in the same section (`section[n][k]` -> `.pap`, `section[n][k+1]` -> `.img`). |
 
+
+### File Types description
+
+**`.img`**
+```c
+struct ImgHeader {
+   u32 image_count;
+   u32 tpl_offset;  // offset to embedded TPL (magic: 0x0020AF30)
+};
+```
+Header is at `0x00` or `0x10` or even further. I have no idea why. TPL magic may also appear anywhere in the block.
+
+**`.mb0`**
+```c
+struct Mb0Header {
+   u32 sequence_count;
+   u32 offsets[sequence_count];  // offsets[0] == 4 + sequence_count * 4
+   u16 words[];                  // glyph indices and control codes, terminated by 0x8000
+};
+```
+
+`0x8001` - \n, `0x8002` - iirc tabulation, other codes start from `0x81xx`. `0x900x` - Wii buttons icons index, think of a general glyph index for the buttons texture.
+
+
+**`.pap`**
+```c
+struct PapHeader {
+   u16 ca, cc, cb, cd;  // entry counts; at least one nonzero
+   u32 oa, ob, oc, od;  // section offsets; first nonzero == 0x18
+   // section entry strides: 0x0C, 0x04, 0x1C, 0x1C
+};
+```
+TODO: Confirm the format. I derived this from my PS2 FMA notes.
+
+
+**`.utx`**
+```c
+struct UtxHeader {
+   u32 char_count;  // char_count * 2 == block_size - 4
+   u16 chars[];     // UTF-16, null-terminated
+};
+```
+
 ---
 
 ## Credits
