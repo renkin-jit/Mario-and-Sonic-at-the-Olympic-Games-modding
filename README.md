@@ -88,3 +88,8 @@ Secondary container holding a flat list of sections. Each section is either a si
 
 ### Related Tools
 *   [**SoyJack**](https://github.com/soyjack)
+
+---
+
+# Mario and Sonic at the Olympic Winter Games (Wii)
+Game uses NiGHTS: Journey Into Dreams formats
